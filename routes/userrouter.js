@@ -5,10 +5,12 @@ const express=require('express');
 
 const userrouter=express.Router();
 
-const rootdir=require('../utils/pathutil');
+
+const { registerhomes } = require('./hostrouter');
 
 userrouter.get("/",(req,res,next)=>{
-res.sendFile(path.join(rootdir,'views','home.html'));
+  console.log(registerhomes);
+res.render('home',{registerhomes:registerhomes,pagetitle:'airbnb home'});
 });
 
 module.exports=userrouter;

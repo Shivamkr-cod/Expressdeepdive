@@ -1,0 +1,58 @@
+
+   <%- include('partials/head') %>
+  </head>
+
+  <body>
+    <%- include('partials/nav') %>
+    <header>
+      <h1>Welcome to Airbnb</h1>
+    </header>
+
+   <main>
+
+  <h2 style="
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #333;
+  ">
+    Here are our registered homes:
+  </h2>
+
+  <ul style="
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+    margin: 0 auto 30px auto;
+  ">
+    <% registerhomes.forEach(home => { %>
+      <li style="
+        background: white;
+        margin-bottom: 12px;
+        padding: 14px 18px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        text-align: left;
+        font-size: 18px;
+        color: #333;
+      ">
+        <%= home.housename %>
+      </li>
+    <% }) %>
+  </ul>
+
+  <a class="add-home-btn" href="/host/add-home" style="
+    background: #008489;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 6px;
+    transition: 0.3s;
+    display: inline-block;
+  ">
+    Add Home
+  </a>
+</main>
+
+  </body>
+</html>

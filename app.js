@@ -3,14 +3,19 @@ const path=require('path');
 const express = require("express");
 
 const userrouter = require("./routes/userrouter");
-const hostrouter = require("./routes/hostrouter");
+const {hostrouter} = require("./routes/hostrouter");
 const rootdir=require("./utils/pathutil");
 
 const app = express();
 
+app.set('view engine','ejs');
+app.set('views','views');
+
 app.use(express.urlencoded());
 app.use(userrouter);
 app.use(hostrouter);
+
+app.use(express.static(path.join(rootdir,'public')));
 
 app.use((req,res,next)=>{
 res.sendFile(path.join(rootdir,'views','404.html'));
